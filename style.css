@@ -4,7 +4,8 @@ body {
   align-items: center;
   height: 100vh;
 
-  background: linear-gradient(rgb(230, 230, 250), rgb(240, 240, 255));
+  background: rgb(255,220,235);
+  background: linear-gradient(90deg, rgba(255,220,235,1) 0%, rgba(212,231,255,1) 21%);
 }
 
 div {
@@ -18,11 +19,26 @@ div {
   margin-top: 30px;
 }
 
+@keyframes increaseSize {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2); /* You can adjust this scaling factor as needed */
+  }
+}
+
 #yesButton {
   position: absolute;
   margin-right: 150px;
   margin-top: 30px;
+  transition: transform 0.3s; /* Adding a smooth transition */
 }
+
+#yesButton:hover {
+  animation: increaseSize 1s infinite alternate; /* Apply animation on hover */
+}
+
 
 .header_text {
   font-family: "Nunito";
@@ -100,3 +116,62 @@ p a {
   margin: 20px; /* Adjust the margin as needed */
 }
 
+.option_btn {
+  background-color: #017cff;
+  color: white;
+  font-weight: 600;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 3px black;
+}
+
+.option_btn:hover {
+  background-color: #ffffff;
+  color: #017cff;
+}
+
+/* Your existing styles */
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
